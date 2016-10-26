@@ -8,6 +8,7 @@
     <th>Description</th>
     <th>Price</th>
     <th>Quantity</th>
+    <th>Edit</th>
   </tr>
     <%@items.each do |item| %>
     <tr>
@@ -15,8 +16,9 @@
       <td><%=item.title%></td>
       <td><%=item.category%></td>
       <td><%=item.description%></td>
-      <td><%=number_to_currency(item.price/100)%></td>
+      <td><%=number_to_currency(item.price.to_i/100.0)%></td>
       <td><%=item.total_order%></td>
+      <td> <%=link_to "Edit this item", edit_item_path(:id => item.id)%> </td>
     </tr>
       <%end%>
 </table>
