@@ -130,4 +130,15 @@ Tuesday homework
   => 420566
 
 9.) Simulate buying an item by inserting a User for yourself and an Order for that User.
-  
+  [14] pry(main)> User.find_or_create_by(:first_name => 'Luis', :last_name => 'Lancon',:email => 'abc@tiy.com')
+  User Load (0.4ms)  SELECT  "users".* FROM "users" WHERE "users"."first_name" = ? AND "users"."last_name" = ? AND "users"."email" = ? LIMIT ?  [["first_name", "Luis"], ["last_name", "Lancon"], ["email", "abc@tiy.com"], ["LIMIT", 1]]
+   (0.1ms)  begin transaction
+  SQL (0.4ms)  INSERT INTO "users" ("first_name", "last_name", "email") VALUES (?, ?, ?)  [["first_name", "Luis"], ["last_name", "Lancon"], ["email", "abc@tiy.com"]]
+   (1.8ms)  commit transaction
+  => #<User:0x007fcc2da91fe0
+ id: 53,
+ first_name: "Luis",
+ last_name: "Lancon",
+ email: "abc@tiy.com">
+ 
+ 
