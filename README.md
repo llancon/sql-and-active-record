@@ -141,4 +141,18 @@ Tuesday homework
  last_name: "Lancon",
  email: "abc@tiy.com">
  
+ [19] pry(main)> Order.find_or_create_by(:user_id => '53', :item_id => '100', :quantity => '10000', :created_at => '2016-10-09 00:40:31.307668')
+  Order Load (0.4ms)  SELECT  "orders".* FROM "orders" WHERE "orders"."user_id" = ? AND "orders"."item_id" = ? AND "orders"."quantity" = ? AND "orders"."created_at" = ? LIMIT ?  [["user_id", 53], ["item_id", 100], ["quantity", 10000], ["created_at", "2016-10-09 00:40:31.307668"], ["LIMIT", 1]]
+   (0.1ms)  begin transaction
+  User Load (0.3ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?  [["id", 53], ["LIMIT", 1]]
+  Item Load (0.1ms)  SELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?  [["id", 100], ["LIMIT", 1]]
+  SQL (0.3ms)  INSERT INTO "orders" ("user_id", "item_id", "quantity", "created_at") VALUES (?, ?, ?, ?)  [["user_id", 53], ["item_id", 100], ["quantity", 10000], ["created_at", 2016-10-09 00:40:31 UTC]]
+   (2.0ms)  commit transaction
+=> #<Order:0x007fcc2d81a078
+ id: 378,
+ user_id: 53,
+ item_id: 100,
+ quantity: 10000,
+ created_at: Sun, 09 Oct 2016 00:40:31 UTC +00:00>
+
  
