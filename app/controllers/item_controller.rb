@@ -16,6 +16,7 @@ class ItemController < ApplicationController
     @item.price = params[:item][:price]
     @item.save
     redirect_to root_path
+
   end
 
   def show
