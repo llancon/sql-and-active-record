@@ -1,5 +1,6 @@
-
+  
     <%= form_for @item do |f| %>
+    <div class='container'>
       <div>
         <%= f.label :title %>
         <%= f.text_field :title %>
@@ -15,6 +16,7 @@
       <div>
         <%= f.label :price %>
         <%= f.text_field :price %>
-      </div>
+  </div>
       <%= f.submit %>
+  </div>
     <% end %>
